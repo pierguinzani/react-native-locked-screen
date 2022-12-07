@@ -20,7 +20,7 @@ export const removeEvent = (eventName: string) => {
   }
 };
 
-export const getEventHandler = (eventName) => {
+export const getEventHandler = (eventName: string): EmitterSubscription => {
   return isObject(eventMap) && eventMap[eventName];
 };
 
@@ -43,14 +43,7 @@ export const setEvents = (events) => {
 //   return RNLocked.isScreenOff();
 // };
 
-export const setOnBeforeExit = (onBeforeExit?: () => void) => {
-  if (onBeforeExit) {
-    setEvent('onBeforeExit', onBeforeExit);
-  }
-}
-
-export const exitApp = () => {
-  const onBeforeExit = eventMap['onBeforeExit'];
+export const exitApp = (onBeforeExit) => {
   RNLocked.exitApp(onBeforeExit);
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "react-native-locked",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "react-native-locked is a package for screen on/off event in React Native app.",
   "main": "index.js",
   "scripts": {
