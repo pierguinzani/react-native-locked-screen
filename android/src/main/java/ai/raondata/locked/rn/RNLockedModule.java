@@ -9,6 +9,8 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -67,5 +69,11 @@ public class RNLockedModule extends ReactContextBaseJavaModule {
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         filter.addAction(Intent.ACTION_SCREEN_ON);
         reactContext.registerReceiver(mScreenStateReceiver, filter);
+    }
+
+    @ReactMethod
+    public void exitApp(Callback callbackBeforeExit) {
+        callbackBeforeExit.invoke();
+        android.os.Process.killProcess(android.os.Process.myPid());
     }
 }

@@ -1,6 +1,6 @@
 {
   "name": "react-native-locked",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "description": "react-native-locked is a package for screen on/off event in React Native app.",
   "main": "index.js",
   "scripts": {
@@ -14,15 +14,24 @@
     "ACTION_SCREEN_OFF",
     "android"
   ],
+  "author": {
+    "name": "Daehwan Park",
+    "email": "glow153@gmail.com",
+    "url": "https://github.com/glow153/react-native-locked"
+  },
+  "homepage": "https://github.com/glow153/react-native-locked",
   "bugs": {
     "email": "glow153@gmail.com"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/glow153/react-native-locked"
+  },
   "license": "MIT",
   "peerDependencies": {
     "react-native": "^0.69.3"
   },
   "dependencies": {
-    "@types/react-native": "^0.70.6"
+    "@types/react-native": "^0.69.3"
   }
 }

@@ -43,4 +43,8 @@ export const setEvents = (events) => {
 //   return RNLocked.isScreenOff();
 // };
 
+export const exitApp = (onExit: () => void) => {
+  RNLocked.exitApp(onExit);
+}
+
 export default RNLocked;
