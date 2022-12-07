@@ -72,8 +72,10 @@ public class RNLockedModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void exitApp(Callback callbackBeforeExit) {
-        callbackBeforeExit.invoke();
+    public void exitApp(@Nullable Callback callbackBeforeExit) {
+        if (callbackBeforeExit != null) {
+            callbackBeforeExit.invoke();
+        }
         android.os.Process.killProcess(android.os.Process.myPid());
     }
 }
