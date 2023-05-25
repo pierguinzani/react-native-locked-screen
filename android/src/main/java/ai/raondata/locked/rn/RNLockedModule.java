@@ -19,6 +19,7 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 import java.util.Objects;
+import android.app.KeyguardManager;
 
 
 public class RNLockedModule extends ReactContextBaseJavaModule {
@@ -77,5 +78,12 @@ public class RNLockedModule extends ReactContextBaseJavaModule {
             callbackBeforeExit.invoke();
         }
         android.os.Process.killProcess(android.os.Process.myPid());
+    }
+
+    @ReactMethod
+    public void isScreenLocked(Callback callback) {
+        KeyguardManager keyguardManager = (KeyguardManager) reactContext.getSystemService(Context.KEYGUARD_SERVICE);
+        boolean isLocked = keyguardManager.isKeyguardLocked();
+        callback.invoke(isLocked);
     }
 }

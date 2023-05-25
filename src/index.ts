@@ -39,9 +39,10 @@ export const setEvents = (events) => {
   Object.entries(events).forEach(([k, v]) => setEvent(k, v));
 };
 
-// export const isScreenOff = () => {
-//   return RNLocked.isScreenOff();
-// };
+export const isScreenLocked = () => {
+  return RNLocked.isScreenLocked();
+};
+
 
 export const exitApp = (onBeforeExit) => {
   RNLocked.exitApp(onBeforeExit);
