@@ -39,8 +39,17 @@ export const setEvents = (events) => {
   Object.entries(events).forEach(([k, v]) => setEvent(k, v));
 };
 
-export const isScreenLocked = () => {
-  return RNLocked.isScreenLocked();
+
+export const ScreenLock = {
+  isLocked: () => new Promise((resolve, reject) => {
+    RNLocked.isScreenLocked((error, isLocked) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(isLocked);
+      }
+    });
+  })
 };
 
 

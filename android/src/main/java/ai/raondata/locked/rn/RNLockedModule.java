@@ -79,11 +79,10 @@ public class RNLockedModule extends ReactContextBaseJavaModule {
         }
         android.os.Process.killProcess(android.os.Process.myPid());
     }
-
     @ReactMethod
     public void isScreenLocked(Callback callback) {
         KeyguardManager keyguardManager = (KeyguardManager) reactContext.getSystemService(Context.KEYGUARD_SERVICE);
         boolean isLocked = keyguardManager.isKeyguardLocked();
-        callback.invoke(isLocked);
+        callback.invoke(null, isLocked);
     }
 }
