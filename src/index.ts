@@ -39,9 +39,8 @@ export const setEvents = (events) => {
   Object.entries(events).forEach(([k, v]) => setEvent(k, v));
 };
 
-
-export const ScreenLock = {
-  isLocked: () => new Promise((resolve, reject) => {
+export const isLocked = () => {
+  return new Promise((resolve, reject) => {
     RNLocked.isScreenLocked((error, isLocked) => {
       if (error) {
         reject(error);
@@ -49,9 +48,8 @@ export const ScreenLock = {
         resolve(isLocked);
       }
     });
-  })
+  });
 };
-
 
 export const exitApp = (onBeforeExit) => {
   RNLocked.exitApp(onBeforeExit);
